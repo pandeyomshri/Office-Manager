@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Employee, Role, Department
 from datetime import datetime
 from django.http import HttpResponse
+from time import gmtime, strftime
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
@@ -39,7 +40,7 @@ def remove_emp(request, emp_id = 0):
         try:
             emp_to_be_removed = Employee.objects.get(id=emp_id)
             emp_to_be_removed.delete()
-            return HttpResponse("Employee removed successfully")
+            return HttpResponse("Employee removed")
         except:
             return HttpResponse("Please Enter a valid ID")    
     emps = Employee.objects.all()

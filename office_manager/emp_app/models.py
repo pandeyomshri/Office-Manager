@@ -23,6 +23,7 @@ class Employee(models.Model):
     role = models.ForeignKey(Role, on_delete=models.CASCADE)
     phone = models.IntegerField(default = 0)
     hire_date = models.DateField()
+    # hire_time = models.TimeField()
 
 
     def __str__(self):
